@@ -2,7 +2,7 @@
 -----
 A minimal FontAwesomeFX GlyphBrowser
 
-Code original from [here](https://github.com/Jerady/fontawesomefx-glyphsbrowser)
+This is a modified and striped version of the fontawesome-glyphbrowser found [here](https://github.com/Jerady/fontawesomefx-glyphsbrowser)
 
 ## Required libraries:
 [controlsfx](https://github.com/controlsfx/controlsfx)
