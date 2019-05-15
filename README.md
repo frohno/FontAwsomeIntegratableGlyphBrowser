@@ -1,5 +1,5 @@
 # FontAwsomeIntegratableGlyphBrowser
------
+
 A minimal FontAwesomeFX GlyphBrowser
 
 This is a modified and striped version of the fontawesome-glyphbrowser found [here](https://github.com/Jerady/fontawesomefx-glyphsbrowser)
