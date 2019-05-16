@@ -29,12 +29,14 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.controlsfx.control.GridView;
@@ -58,7 +60,7 @@ public class MinimalGlyphsBrowser extends VBox {
     Lock lock = new ReentrantLock();
     Condition condition = lock.newCondition();
 
-    public static String getGlyph() {
+    public static String getGlyph(Node node) {
         MinimalGlyphsBrowser iconsBrowser = new MinimalGlyphsBrowser();
         iconsBrowser.lock.lock();
         try {
@@ -67,6 +69,10 @@ public class MinimalGlyphsBrowser extends VBox {
                 Scene scene = new Scene(iconsBrowser, 220, 300);
                 stage.setScene(scene);
                 stage.initStyle(StageStyle.UNDECORATED);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                Bounds bounds = node.localToScreen(node.getBoundsInLocal());
+                stage.setX(bounds.getMinX());
+                stage.setY(bounds.getMinY());
                 stage.show();
             });
             iconsBrowser.condition.await();
